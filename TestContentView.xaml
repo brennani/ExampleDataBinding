@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:ExampleDataBinding"
+             x:Class="ExampleDataBinding.TestContentView"
+             x:DataType="local:TestContentViewModel"
+             x:Name="this">
+    <ContentView.Content>
+        <StackLayout>
+            <Label Text="{Binding Guid}" />
+            <!-- testing this to see if anything shows up, currently null value it seems -->
+            <!-- it doesnt seem that the FallbackValue is being shown either, which indicates ArbitraryGuid exists but doesnt have a value-->
+            <Label Text="{Binding Source={x:Reference this}, Path=ArbitraryGuid, FallbackValue='Maybe null'}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
